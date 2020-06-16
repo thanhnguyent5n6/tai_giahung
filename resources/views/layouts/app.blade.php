@@ -35,7 +35,7 @@
 
                 <!-- Branding Image -->
                 <a class="navbar-brand" href="{{ url('/login') }}">
-                    Đăng nhập
+
                 </a>
             </div>
 

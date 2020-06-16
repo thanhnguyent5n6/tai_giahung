@@ -7,14 +7,14 @@
             <div class="panel panel-default">
                 <div class="panel-heading">Đăng nhập</div>
                 <div class="panel-body">
-                    <form class="form-horizontal" role="form" method="POST" action="{{ url('/login') }}">
+                    <form class="form-horizontal" role="form" method="POST" action="{{ route('post.login') }}">
                         {{ csrf_field() }}
 
                         <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
-                            <label for="email" class="col-md-4 control-label">Email</label>
+                            <label for="username" class="col-md-4 control-label">Tên đăng nhập/Email</label>
 
                             <div class="col-md-6">
-                                <input id="email" type="email" class="form-control" name="email" value="{{ old('email') }}">
+                                <input id="username" type="username" class="form-control" name="username" value="{{ old('email') }}">
 
                                 @if ($errors->has('email'))
                                     <span class="help-block">

@@ -1,12 +1,15 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Admin;
 
+use App\Http\Controllers\BaseController;
+use App\User;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
+use Illuminate\Support\Facades\Gate;
 
-class userController extends Controller
+class UserController extends BaseController
 {
     /**
      * Display a listing of the resource.
@@ -15,7 +18,8 @@ class userController extends Controller
      */
     public function index()
     {
-        //
+        $user = User::find(1);
+        return view('admin.users.index');
     }
 
     /**

@@ -1,36 +1,39 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Admin;
 
+use App\Http\Controllers\BaseController;
+use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Gate;
 use App\Http\Requests;
 use App\User;
-use App\Product;
-use App\Bill;
-use App\News;
-use App\ProductType;
-use App\BillDetail;
-use App\Slide;
+use App\Models\Product;
+use App\Models\Bill;
+use App\Models\News;
+use App\Models\Category;
+use App\Models\BillDetail;
+use App\Models\Slide;
 use DB;
 
-class AdminController extends Controller
+class AdminController extends BaseController
 {
-    public function getInterface()
+    public function index()
     {
-    	$user = User::all();
-    	$sale = Product::where('promotion_price','<>','0')->get();
-    	$order = Bill::all();
-    	$total = BillDetail::all();
-    	$tong = 0;
-    	foreach($total as $t)
-    	{
-    		$tong += $t->unit_price * $t->quantity;
-    	}
-        $dola = 22735;
-    	$tong = $tong/$dola;
-    	return view('admin.interface', compact('user','sale','order','tong'));
+        $user = User::all();
+        $sale = Product::where('promotion_price','<>','0')->get();
+        $order = Bill::all();
+        $total = BillDetail::all();
+        $tong = 0;
+        foreach($total as $t)
+        {
+            $tong += $t->unit_price * $t->quantity;
+        }
+        $dola = 23000;
+        $tong = $tong/$dola;
+        return view('admin.index', compact('user','sale','order','tong'));
     }
+
     // ------------------------ PRODUCT ------------------------
     public function getProduct()
     {
@@ -287,20 +290,6 @@ class AdminController extends Controller
     public function getCategoryNews()
     {
         return view('admin.danhmuc_tintuc');
-    }
-    // ------------------------ USER ------------------------
-    public function getUser()
-    {
-        $user = User::find(1);
-        if (Gate::allows('super-admin', $user)) 
-        {
-            return view('admin.thanhvien',compact('user'));
-        } 
-        else 
-        {
-            echo 'Không được phép';
-        }
-        
     }
 
     // ------------------------ SLIDE ------------------------

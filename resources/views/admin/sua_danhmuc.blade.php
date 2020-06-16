@@ -1,4 +1,4 @@
-@extends('admin.daodien')
+@extends('admin.master.daodien')
 @section('content')
 <section id="main-content">
           <section class="wrapper site-min-height">

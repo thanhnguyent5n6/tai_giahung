@@ -1,4 +1,4 @@
-@extends('admin.daodien')
+@extends('admin.master.daodien')
 @section('content')
 <script type="text/javascript">
   $(document).ready(function(){

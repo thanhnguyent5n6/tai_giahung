@@ -1,4 +1,4 @@
-@extends('admin.daodien')
+@extends('admin.master.daodien')
 @section('content')
 <style type="text/css">
   .sel_category {

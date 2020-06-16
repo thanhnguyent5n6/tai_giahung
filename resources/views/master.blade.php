@@ -3,8 +3,7 @@
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Beautygarden - Mỹ phẩm chính hiệu tốt nhất Việt Nam</title>
-	<base href="{{ asset('') }}">
+	<title>@yield('title')</title>
 	<link href='http://fonts.googleapis.com/css?family=Dosis:300,400' rel='stylesheet' type='text/css'>
 	<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300' rel='stylesheet' type='text/css'>
 	<link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css">
@@ -17,19 +16,6 @@
 	<link rel="stylesheet" title="style" href="source/assets/dest/css/huong-style.css">
 </head>
 <body>
-<!--Start of Tawk.to Script-->
-<script type="text/javascript">
-var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
-(function(){
-var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
-s1.async=true;
-s1.src='https://embed.tawk.to/5b02297b227d3d7edc257dcd/default';
-s1.charset='UTF-8';
-s1.setAttribute('crossorigin','*');
-s0.parentNode.insertBefore(s1,s0);
-})();
-</script>
-<!--End of Tawk.to Script-->
 	<div id="header">
 		@include('header')
 	</div> <!-- #header -->
@@ -37,6 +23,20 @@ s0.parentNode.insertBefore(s1,s0);
 	@yield('content')
 
 	@include('footer')
+
+	<!--Start of Tawk.to Script-->
+	<script type="text/javascript">
+		var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
+		(function(){
+			var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
+			s1.async=true;
+			s1.src='https://embed.tawk.to/5b02297b227d3d7edc257dcd/default';
+			s1.charset='UTF-8';
+			s1.setAttribute('crossorigin','*');
+			s0.parentNode.insertBefore(s1,s0);
+		})();
+	</script>
+	<!--End of Tawk.to Script-->
 
 	<!-- include js files -->
 	<script src="source/assets/dest/js/jquery-3.3.1.min.js"></script>

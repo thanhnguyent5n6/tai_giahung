@@ -4,8 +4,8 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class New extends Model
+class Slide extends Model
 {
     //
-    protected $table = "news";
+    protected $table = "slides";
 }
