@@ -1,5 +1,5 @@
 <?php
-Route::get('/', function () {
+/*Route::get('/', function () {
     return view('index');
 });
 Route::get('index',[
@@ -50,4 +50,4 @@ Route::get('search',[
 ]);
 
 Route::get('/home','PageController@getIndex');
-Route::get('','PageController@getIndex');
+Route::get('','PageController@getIndex');*/

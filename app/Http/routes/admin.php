@@ -5,15 +5,19 @@ Route::get('admin', function(){
 });
 
 Route::group(array('prefix'=>'admin','middleware'=>'auth'),function(){
-    Route::get('logout',function(){
-        Auth::logout();
-        return redirect('login');
-    });
-
     Route::get('/', 'Admin\AdminController@index')->name('admin.index');
-
     Route::group(['prefix' => 'users'], function() {
         Route::get('/','Admin\UserController@index')->name('admin.user.index');
+    });
+
+    Route::group(['prefix' => 'categories'], function() {
+        Route::get('/', 'Admin\CategoryController@index')->name('admin.categories.index');
+        Route::get('/create', 'Admin\CategoryController@create')->name('admin.categories.create');
+        Route::post('/store', 'Admin\CategoryController@store')->name('admin.categories.store');
+        Route::get('/show/{id}', 'Admin\CategoryController@show')->name('admin.categories.show');
+        Route::get('/edit/{id}', 'Admin\CategoryController@edit')->name('admin.categories.edit');
+        Route::get('/update', 'Admin\CategoryController@update')->name('admin.categories.update');
+        Route::get('/destroy/{id}', 'Admin\CategoryController@destroy')->name('admin.categories.destroy');
     });
 
 

@@ -1,172 +1,91 @@
-@extends('admin.master.admin_master')
-@section('title')
+@extends('layouts.metronics.master')
+@section('page_title')
     Trang chủ
 @stop
-@section('content')
-    <!--state overview start-->
-    <div class="row state-overview">
-        <div class="col-lg-3 col-sm-6">
-            <section class="panel">
-                <div class="symbol terques">
-                    <i class="fa fa-user"></i>
+@section('bread_crumb')
+    <a href="#" class="kt-subheader__desc"></a>
+@stop
+@section('page_css')
+    <style></style>
+@stop
+@section('page_content')
+    <div class="row">
+        <div class="col-xl-12">
+            <div class="kt-portlet kt-portlet--height-fluid kt-portlet--mobile ">
+                <div class="kt-portlet__head kt-portlet__head--lg kt-portlet__head--noborder kt-portlet__head--break-sm">
+                    <div class="kt-portlet__head-label">
+                        <h3 class="kt-portlet__head-title">
+                            Exclusive Datatable Plugin
+                        </h3>
+                    </div>
+                    <div class="kt-portlet__head-toolbar">
+                        <div class="dropdown dropdown-inline">
+                            <button type="button" class="btn btn-clean btn-sm btn-icon btn-icon-md" data-toggle="dropdown"
+                                    aria-haspopup="true" aria-expanded="false">
+                                <i class="flaticon-more-1"></i>
+                            </button>
+                            <div class="dropdown-menu dropdown-menu-right dropdown-menu-md dropdown-menu-fit">
+
+                                <!--begin::Nav-->
+                                <ul class="kt-nav">
+                                    <li class="kt-nav__head">
+                                        Export Options
+                                        <i class="flaticon2-information" data-toggle="kt-tooltip" data-placement="right"
+                                           title="Click to learn more..."></i>
+                                    </li>
+                                    <li class="kt-nav__separator"></li>
+                                    <li class="kt-nav__item">
+                                        <a href="#" class="kt-nav__link">
+                                            <i class="kt-nav__link-icon flaticon2-drop"></i>
+                                            <span class="kt-nav__link-text">Activity</span>
+                                        </a>
+                                    </li>
+                                    <li class="kt-nav__item">
+                                        <a href="#" class="kt-nav__link">
+                                            <i class="kt-nav__link-icon flaticon2-calendar-8"></i>
+                                            <span class="kt-nav__link-text">FAQ</span>
+                                        </a>
+                                    </li>
+                                    <li class="kt-nav__item">
+                                        <a href="#" class="kt-nav__link">
+                                            <i class="kt-nav__link-icon flaticon2-link"></i>
+                                            <span class="kt-nav__link-text">Settings</span>
+                                        </a>
+                                    </li>
+                                    <li class="kt-nav__item">
+                                        <a href="#" class="kt-nav__link">
+                                            <i class="kt-nav__link-icon flaticon2-new-email"></i>
+                                            <span class="kt-nav__link-text">Support</span>
+                                            <span class="kt-nav__link-badge">
+																		<span class="kt-badge kt-badge--success">5</span>
+																	</span>
+                                        </a>
+                                    </li>
+                                    <li class="kt-nav__separator"></li>
+                                    <li class="kt-nav__foot">
+                                        <a class="btn btn-label-danger btn-bold btn-sm" href="#">Upgrade plan</a>
+                                        <a class="btn btn-clean btn-bold btn-sm" href="#" data-toggle="kt-tooltip"
+                                           data-placement="right" title="Click to learn more...">Learn more</a>
+                                    </li>
+                                </ul>
+
+                                <!--end::Nav-->
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <div class="value">
-                    <h1>
-                        {{ count($user) }}
-                    </h1>
-                    <p>Thành viên</p>
+                <div class="kt-portlet__body kt-portlet__body--fit">
+                    <!--begin: Datatable -->
+                    <div class="kt-datatable" id="kt_datatable_latest_orders"></div>
+                    <!--end: Datatable -->
                 </div>
-            </section>
-        </div>
-        <div class="col-lg-3 col-sm-6">
-            <section class="panel">
-                <div class="symbol red">
-                    <i class="fa fa-tags"></i>
-                </div>
-                <div class="value">
-                    <h1>
-                        {{ count($sale) }}
-                    </h1>
-                    <p>Sản phẩm khuyễn mãi</p>
-                </div>
-            </section>
-        </div>
-        <div class="col-lg-3 col-sm-6">
-            <section class="panel">
-                <div class="symbol yellow">
-                    <i class="fa fa-shopping-cart"></i>
-                </div>
-                <div class="value">
-                    <h1>
-                        {{ count($order) }}
-                    </h1>
-                    <p>Đơn hàng mới</p>
-                </div>
-            </section>
-        </div>
-        <div class="col-lg-3 col-sm-6">
-            <section class="panel">
-                <div class="symbol blue">
-                    <i class="fa fa-bar-chart-o"></i>
-                </div>
-                <div class="value">
-                    <h1>
-                        {{ number_format($tong) }}$
-                    </h1>
-                    <p>Giá trị đơn  hàng</p>
-                </div>
-            </section>
+            </div>
         </div>
     </div>
-    <!--state overview end-->
+@stop
 
-    <div class="row">
-        <div class="col-lg-8">
-            <!--custom chart start-->
-            <div class="border-head">
-                <h3>Earning Graph</h3>
-            </div>
-            <div class="custom-bar-chart">
-                <ul class="y-axis">
-                    <li><span>100</span></li>
-                    <li><span>80</span></li>
-                    <li><span>60</span></li>
-                    <li><span>40</span></li>
-                    <li><span>20</span></li>
-                    <li><span>0</span></li>
-                </ul>
-                <div class="bar">
-                    <div class="title">JAN</div>
-                    <div class="value tooltips" data-original-title="80%" data-toggle="tooltip" data-placement="top">80%</div>
-                </div>
-                <div class="bar ">
-                    <div class="title">FEB</div>
-                    <div class="value tooltips" data-original-title="50%" data-toggle="tooltip" data-placement="top">50%</div>
-                </div>
-                <div class="bar ">
-                    <div class="title">MAR</div>
-                    <div class="value tooltips" data-original-title="40%" data-toggle="tooltip" data-placement="top">40%</div>
-                </div>
-                <div class="bar ">
-                    <div class="title">APR</div>
-                    <div class="value tooltips" data-original-title="55%" data-toggle="tooltip" data-placement="top">55%</div>
-                </div>
-                <div class="bar">
-                    <div class="title">MAY</div>
-                    <div class="value tooltips" data-original-title="20%" data-toggle="tooltip" data-placement="top">20%</div>
-                </div>
-                <div class="bar ">
-                    <div class="title">JUN</div>
-                    <div class="value tooltips" data-original-title="39%" data-toggle="tooltip" data-placement="top">39%</div>
-                </div>
-                <div class="bar">
-                    <div class="title">JUL</div>
-                    <div class="value tooltips" data-original-title="75%" data-toggle="tooltip" data-placement="top">75%</div>
-                </div>
-                <div class="bar ">
-                    <div class="title">AUG</div>
-                    <div class="value tooltips" data-original-title="45%" data-toggle="tooltip" data-placement="top">45%</div>
-                </div>
-                <div class="bar ">
-                    <div class="title">SEP</div>
-                    <div class="value tooltips" data-original-title="50%" data-toggle="tooltip" data-placement="top">50%</div>
-                </div>
-                <div class="bar ">
-                    <div class="title">OCT</div>
-                    <div class="value tooltips" data-original-title="42%" data-toggle="tooltip" data-placement="top">42%</div>
-                </div>
-                <div class="bar ">
-                    <div class="title">NOV</div>
-                    <div class="value tooltips" data-original-title="60%" data-toggle="tooltip" data-placement="top">60%</div>
-                </div>
-                <div class="bar ">
-                    <div class="title">DEC</div>
-                    <div class="value tooltips" data-original-title="90%" data-toggle="tooltip" data-placement="top">90%</div>
-                </div>
-            </div>
-            <!--custom chart end-->
-        </div>
-        <div class="col-lg-4">
-            <!--new earning start-->
-            <div class="panel terques-chart">
-                <div class="panel-body chart-texture">
-                    <div class="chart">
-                        <div class="heading">
-                            <span>Friday</span>
-                            <strong>$ 57,00 | 15%</strong>
-                        </div>
-                        <div class="sparkline" data-type="line" data-resize="true" data-height="75" data-width="90%" data-line-width="1" data-line-color="#fff" data-spot-color="#fff" data-fill-color="" data-highlight-line-color="#fff" data-spot-radius="4" data-data="[200,135,667,333,526,996,564,123,890,564,455]"></div>
-                    </div>
-                </div>
-                <div class="chart-tittle">
-                    <span class="title">New Earning</span>
-                    <span class="value">
-                                  <a href="#" class="active">Market</a>
-                                  |
-                                  <a href="#">Referal</a>
-                                  |
-                                  <a href="#">Online</a>
-                              </span>
-                </div>
-            </div>
-            <!--new earning end-->
+@section('page_js')
+    <script>
 
-            <!--total earning start-->
-            <div class="panel green-chart">
-                <div class="panel-body">
-                    <div class="chart">
-                        <div class="heading">
-                            <span>June</span>
-                            <strong>23 Days | 65%</strong>
-                        </div>
-                        <div id="barchart"></div>
-                    </div>
-                </div>
-                <div class="chart-tittle">
-                    <span class="title">Total Earning</span>
-                    <span class="value">$, 76,54,678</span>
-                </div>
-            </div>
-            <!--total earning end-->
-        </div>
+    </script>
 @stop
