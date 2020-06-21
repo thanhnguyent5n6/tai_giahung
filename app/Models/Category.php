@@ -45,16 +45,6 @@ class Category extends BaseModel
         return "";
     }
 
-    public function getData()
-    {
-        return $this->where('is_deleted', NO_DELETED)->get();
-    }
-
-    public function getAll()
-    {
-        return $this->getData();
-    }
-
     public function getItemParents()
     {
         return $this->where('parent_id', 0)->where('is_deleted', NO_DELETED)->get();

@@ -16,4 +16,14 @@ class BaseModel extends Model
     {
         return $this->update('is_deleted', DELETED);
     }
+
+    public function getData()
+    {
+        return $this->where('is_deleted', NO_DELETED)->get();
+    }
+
+    public function getAll()
+    {
+        return $this->getData();
+    }
 }
